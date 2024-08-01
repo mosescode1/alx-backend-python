@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-import math
+sum_list = __import__('5-sum_list').sum_list
 
-floor = __import__('2-floor').floor
-
-ans = floor(3.14)
-
-print(ans == math.floor(3.14))
-print(floor.__annotations__)
-print("floor(3.14) returns {}, which is a {}".format(ans, type(ans)))
+floats = [3.14, 1.11, 2.22]
+floats_sum = sum_list(floats)
+print(floats_sum == sum(floats))
+print(sum_list.__annotations__)
+print("sum_list(floats) returns {} which is a {}".format(
+    floats_sum, type(floats_sum)))
