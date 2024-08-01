@@ -1,6 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Mixed comples types Annotations"""
-
 from typing import Union, Tuple
 
 
