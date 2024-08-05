@@ -9,6 +9,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     """Let's execute multiple coroutines at the same time with async"""
     arr = []
     for _ in range(n):
-        task = asyncio.create_task(wait_random(max_delay))
-        arr.append(task)
-    return [r for r in asyncio.as_completed(arr)]
+        data = await wait_random(max_delay)
+
+        arr.append(data)
+    return arr
