@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""The basic of Async"""
 import asyncio
 from random import uniform
+"""The basic of Async"""
 
 
 async def wait_random(max_delay=10):
