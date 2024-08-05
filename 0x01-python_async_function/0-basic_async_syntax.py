@@ -7,5 +7,5 @@ from random import uniform
 async def wait_random(max_delay=10) -> float:
     """A couratine for async function"""
     random = uniform(max_delay, 0)
-    # await asyncio.sleep(random)
+    await asyncio.sleep(random)
     return random
