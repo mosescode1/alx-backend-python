@@ -5,8 +5,8 @@ from typing import AsyncGenerator
 import random
 
 
-async def async_generator() -> AsyncGenerator[int, None]:
+async def async_generator() -> AsyncGenerator[float, None, None]:
     """Async Generator"""
     for _ in range(1, 10):
-        await asyncio.sleep(1)
         yield random.uniform(0, 10)
+        await asyncio.sleep(1)
