@@ -5,7 +5,7 @@ from typing import AsyncGenerator, Generator
 import random
 
 
-async def async_generator() -> Generator[float, None, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     """Async Generator"""
     for _ in range(1, 10):
         yield random.uniform(0, 10)
