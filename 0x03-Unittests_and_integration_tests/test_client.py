@@ -22,10 +22,14 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_org.assert_called_once_with(
             f"https://api.github.com/orgs/{org_name}")
 
-    def test_public_repos_url(self):
+    @parameterized.expand([
+        ("google",),
+        ("abc",),
+    ])
+    def test_public_repos_url(self, org_name):
         """Mocking a property"""
         with patch.object(GithubOrgClient, '_public_repos_url', new_callable=PropertyMock) as mocked_property:
-            obj = GithubOrgClient("google")
+            obj = GithubOrgClient(org_name)
             mocked_property.return_value = "this is a value"
             self.assertEqual(obj._public_repos_url,
                              mocked_property.return_value)
