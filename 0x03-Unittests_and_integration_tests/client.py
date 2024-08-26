@@ -60,4 +60,4 @@ class GithubOrgClient:
 
 
 # check = GithubOrgClient("google")
-# print(check.org)
+# print(check.public_repos())
