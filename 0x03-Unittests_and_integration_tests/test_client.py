@@ -64,4 +64,4 @@ class TestGithubOrgClient(unittest.TestCase):
             return_value = ["repo1", "repo2", "repo3"]
             self.assertEqual(obj.public_repos(), return_value)
             mock_get_json.assert_called_once()
-            mocked_property.assert_called_once
+            mocked_property.assert_called_once()
