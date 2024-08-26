@@ -71,6 +71,7 @@ class TestMemoize(unittest.TestCase):
 
     @patch.object(TestClass, "a_method")
     def test_memoize(self, mock_methd):
+        """Function to test memonize"""
 
         mock = self.TestClass()
         # mock_methd.return_value = 42
