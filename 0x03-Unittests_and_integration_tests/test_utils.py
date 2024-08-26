@@ -59,34 +59,27 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     """Testing for memorization"""
-    class TestClass:
-        """Test case for memonize"""
 
-        def a_method(self):
-            return 42
-
-        @memoize
-        def a_property(self):
-            return self.a_method()
-
-    @patch.object(TestClass, "a_method")
-    def test_memonize(self, mock_methd):
+    def test_memonize(self):
         """Testing  for memonize"""
 
-        mock = self.TestClass()
-        mock_methd.return_value = 42
+        class TestClass:
+            """Test case for memonize"""
 
-        # First call to a_property should call a_method
-        mock.a_property
+            def a_method(self):
+                return 42
 
-        # Second call to a_property should not call a_method again
-        mock.a_property
-        mock_methd.assert_called_once()
-        # mock_methd.assert_called_once()  # Should still be called only once
+            @memoize
+            def a_property(self):
+                return self.a_method()
 
-        # Ensure the property returns the correct value
-        # self.assertEqual(result1, 42)
-        # self.assertEqual(result2, 42)
+        with patch.object(TestClass, "a_method") as mock_method:
+            mock = TestClass()
+            mock_method.return_value = 42
+            mock.a_property
+            mock.a_property
+
+            mock_method.assert_called_once()
 
 
 if __name__ == "__main__":
