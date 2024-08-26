@@ -57,3 +57,7 @@ class GithubOrgClient:
         except KeyError:
             return False
         return has_license
+
+
+# check = GithubOrgClient("google")
+# print(check.org)
