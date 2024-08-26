@@ -17,7 +17,7 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_org(self, org_name, mock_org):
         """Method ot test"""
         client = GithubOrgClient(org_name)
-        mock_org.return_value = client.org
+        mock_org.return_value = {"login": org_name}
         self.assertEqual(client.org, mock_org.return_value)
         mock_org.assert_called_once_with(
             f"https://api.github.com/orgs/{org_name}")
@@ -29,7 +29,7 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_public_repos_url(self, org_name):
         """Mocking a property"""
         with patch.object(GithubOrgClient, '_public_repos_url', new_callable=PropertyMock) as mocked_property:
-            obj = GithubOrgClient(org_name)
+            obj = GithubOrgClient("google")
             mocked_property.return_value = "this is a value"
             self.assertEqual(obj._public_repos_url,
                              mocked_property.return_value)
